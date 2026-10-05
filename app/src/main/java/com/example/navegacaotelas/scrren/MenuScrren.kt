@@ -15,9 +15,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @Composable
-fun MenuScrren(modifier: Modifier = Modifier) {
+fun MenuScrren(
+    navController: NavController,
+    modifier: Modifier = Modifier
+) {
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -35,36 +39,26 @@ fun MenuScrren(modifier: Modifier = Modifier) {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Button(
-                onClick = {},
+                onClick = { navController.navigate("pedidos?numeroPedido=1234") },
                 colors = ButtonDefaults.buttonColors(containerColor = Color.White),
             ) {
-                Text(
-                    text = "Pefil",
-                    fontSize = 20.sp,
-                    color = Color.Blue
-                )
+                Text(text = "Pedidos", fontSize = 20.sp, color = Color.Blue)
+            }
+
+
+            //Entrar em pedidos passando parametro -> tira ele do padrao e coloca apos o valor do ?
+            Button(
+                onClick = { navController.navigate("pedidos?NumeroPedido=1234") },
+                colors = ButtonDefaults.buttonColors(containerColor = Color.White),
+            ) {
+                Text(text = "Pedidos", fontSize = 20.sp, color = Color.Blue)
             }
 
             Button(
-                onClick = {},
+                onClick = { navController.navigate("login") },
                 colors = ButtonDefaults.buttonColors(containerColor = Color.White),
             ) {
-                Text(
-                        text = "Pedidos",
-                    fontSize = 20.sp,
-                    color = Color.Blue
-                )
-            }
-
-            Button(
-                onClick = {},
-                colors = ButtonDefaults.buttonColors(containerColor = Color.White),
-            ) {
-                Text(
-                    text = "Sair",
-                    fontSize = 20.sp,
-                    color = Color.Blue
-                )
+                Text(text = "Sair", fontSize = 20.sp, color = Color.Blue)
             }
         }
     }

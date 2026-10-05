@@ -13,22 +13,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 @Composable
-fun PerfilScrren(modifier: Modifier = Modifier) {
+fun PerfilScrren(modifier: Modifier = Modifier, navController: NavHostController, nome: String, idade: Int) {
     Box(
         modifier = modifier
             .fillMaxSize()
             .background(Color(0xFF329F6B))
     ) {
         Text(
-            text = "Perfil",
+            text = "Perfil - $nome - $idade",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             color = Color.White
         )
         Button(
-            onClick = {},
+            onClick = {
+                navController.navigate("menu")
+            },
             colors = ButtonDefaults.buttonColors(containerColor = Color.White),
             modifier = Modifier.align(Alignment.Center)
         ) {
